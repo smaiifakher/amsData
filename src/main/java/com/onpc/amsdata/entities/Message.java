@@ -1,5 +1,6 @@
 package com.onpc.amsdata.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -30,7 +31,8 @@ public class Message {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createDate")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    @Column(name = "create_date")
     private Date createDate;
 
     public Message() {
