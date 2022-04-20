@@ -66,4 +66,14 @@ public class Provider {
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public String toString() {
+        return "Provider{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
