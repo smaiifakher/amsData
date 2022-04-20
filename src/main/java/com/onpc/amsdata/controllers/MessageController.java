@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/message/")
@@ -25,10 +26,13 @@ public class MessageController {
     }
 
 
-
     @GetMapping("list")
     public String listMessages(Model model) {
-        model.addAttribute("messages", messageRepository.findAll());
+        List<Message> messages = (List<Message>) messageRepository.findAll();
+        if (messages.size() == 0) {
+            messages = null;
+        }
+        model.addAttribute("messages", messages);
         return "message/list";
     }
 
